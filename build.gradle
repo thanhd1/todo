@@ -1,0 +1,50 @@
+ext {
+    springBootVersion = '2.1.8.RELEASE'
+}
+
+allprojects {
+
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'jacoco'
+
+    description = 'todo'
+
+    group = 'com.nal'
+
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenLocal()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+subprojects() {
+    apply plugin: 'java'
+    apply plugin: 'java-library'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    compileJava.options.encoding = "UTF-8"
+    compileTestJava.options.encoding = "UTF-8"
+
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+    }
+
+    dependencies() {
+        // TODO: Add more dependencies...
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.10.3'
+}

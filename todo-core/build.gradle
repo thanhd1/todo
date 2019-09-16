@@ -1,0 +1,27 @@
+buildscript {
+	ext {
+		// TODO: Define version...
+	}
+
+	repositories {
+		mavenLocal()
+		jcenter()
+		mavenCentral()
+	}
+}
+
+plugins {
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+jar {
+	baseName = 'todo-core'
+}
+
+dependencies {
+	// TODO: Add more dependencies...
+}
+
+dependencyManagement {
+	imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+}

@@ -1,0 +1,41 @@
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+.settings/
+.factorypath
+.springBeans
+.recommenders/
+.apt_generated/
+.project
+.classpath
+
+### IntelliJ ###
+out/
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+## ignoring target file
+target/
+
+### Gradle ###
+.gradle
+/build/
+
+resources/datastore/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
