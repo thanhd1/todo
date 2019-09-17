@@ -1,5 +1,6 @@
 ext {
     springBootVersion = '2.1.8.RELEASE'
+    lombokVersion = '1.18.4'
 }
 
 allprojects {
@@ -41,7 +42,7 @@ subprojects() {
     }
 
     dependencies() {
-        // TODO: Add more dependencies...
+        compileOnly("org.projectlombok:lombok:${lombokVersion}")
     }
 }
 
