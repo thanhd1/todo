@@ -8,4 +8,6 @@ public interface WorkRepository extends TodoJpaRepository<WorkEntity, Long>  {
 
     List<WorkEntity> findAllByDeleted(Boolean deleted);
 
+    Boolean existsByWorkName(String workName);
+
 }

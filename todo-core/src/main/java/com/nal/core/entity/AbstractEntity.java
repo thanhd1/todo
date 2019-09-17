@@ -22,7 +22,7 @@ public class AbstractEntity implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name = "DELETED", nullable = false)
-    private Boolean deleted;
+    private Boolean deleted = false;
 
     @CreatedBy
     @Column(name = "CREATED_BY", nullable = false)

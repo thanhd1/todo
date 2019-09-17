@@ -1,6 +1,12 @@
 buildscript {
     ext {
         apacheCommonsPoolVersion = '2.6.0'
+        springTestVersion = '5.0.5.RELEASE'
+        mockitoVersion = '1.10.19'
+        jsonpathVersion = '2.2.0'
+        hamcrestVersion = '1.3'
+        powerMockVersion = '1.6.6'
+        junitVersion  = '4.12'
     }
     repositories {
         mavenLocal()
@@ -30,6 +36,16 @@ dependencies {
     /* MySQL JDBC */
     implementation("mysql:mysql-connector-java")
 
+    /* Test */
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testCompile "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+    testCompile "org.mockito:mockito-core:${mockitoVersion}"
+    testCompile "org.springframework:spring-test:${springTestVersion}"
+    testCompile "com.jayway.jsonpath:json-path:${jsonpathVersion}"
+    testCompile "com.jayway.jsonpath:json-path-assert:${jsonpathVersion}"
+    testCompile "junit:junit:${junitVersion}"
+    testCompile "org.powermock:powermock-module-junit4:${powerMockVersion}"
+    testCompile "org.powermock:powermock-api-mockito:${powerMockVersion}"
 }
 
 bootJar {
