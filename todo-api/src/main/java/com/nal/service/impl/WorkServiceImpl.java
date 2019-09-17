@@ -10,10 +10,11 @@ import com.nal.service.WorkService;
 import com.nal.utils.WebConvertUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,8 +36,8 @@ public class WorkServiceImpl implements WorkService {
     }
 
     @Override
-    public List<WorkEntity> findAll() {
-        return workRepository.findAllByDeleted(false);
+    public Page<WorkEntity> findAll(Pageable pageable) {
+        return workRepository.findAllByDeleted(false, pageable);
     }
 
     @Override
