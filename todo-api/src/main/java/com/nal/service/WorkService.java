@@ -10,8 +10,13 @@ public interface WorkService {
 
     Boolean isExistsWorkName(String workName);
 
+    WorkEntity findById(Long id);
+
     List<WorkEntity> findAll();
 
-    WorkEntity save(WorkForm workForm) throws TodoException;
+    WorkEntity add(WorkForm workForm) throws TodoException;
 
+    WorkEntity edit(Long id, WorkForm workForm) throws TodoException;
+
+    void delete(Long id) throws TodoException;
 }

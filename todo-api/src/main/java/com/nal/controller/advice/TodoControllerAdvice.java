@@ -15,15 +15,13 @@ public class TodoControllerAdvice {
     public ErrorObject todoExceptionHandler(TodoException ex) {
         HttpStatus status;
 
-        if (ex instanceof TodoDataNotFoundException) {
-            status = HttpStatus.NOT_FOUND;
-        } else if (ex instanceof TodoBadRequestException) {
+        if (ex instanceof TodoDataNotFoundException || ex instanceof TodoBadRequestException) {
             status = HttpStatus.BAD_REQUEST;
         } else {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
-        return new ErrorObject(status, ex.getErrorMsg());
+        return new ErrorObject(status, ex.getCause().getMessage());
     }
 
 }

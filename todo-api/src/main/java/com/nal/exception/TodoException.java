@@ -7,13 +7,11 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class TodoException extends RuntimeException {
 
-    private String errorMsg;
-
     public TodoException() {
     }
 
     public TodoException(String errorMsg) {
-        this.errorMsg = errorMsg;
+        super(errorMsg);
     }
 
     public static TodoException.Builder dataNotFound(String message) {
