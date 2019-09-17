@@ -3,8 +3,8 @@ package com.nal.service;
 import com.nal.core.entity.WorkEntity;
 import com.nal.exception.TodoException;
 import com.nal.form.WorkForm;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface WorkService {
 
@@ -12,7 +12,7 @@ public interface WorkService {
 
     WorkEntity findById(Long id);
 
-    List<WorkEntity> findAll();
+    Page<WorkEntity> findAll(Pageable pageable);
 
     WorkEntity add(WorkForm workForm) throws TodoException;
 
