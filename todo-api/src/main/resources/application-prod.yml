@@ -1,0 +1,36 @@
+# Server's properties
+server:
+  port: ${TODO_SERVER_PORT}
+  servlet:
+    context-path: ${TODO_CONTEXT_PATH}
+
+# Logging's properties
+logging:
+  level:
+    com.nal: INFO
+    org:
+      springframework:
+        web: INFO
+      hibernate: ERROR
+  path: ${TODO_LOGGING_PATH_WEB}
+  config: classpath:logback-spring.xml
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%-5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(: %L:){faint} %m%n%wEx"
+
+# Spring's properties
+spring:
+  url: ${TODO_SPRING_DATASOURCE_URL}
+  username: ${TODO_SPRING_DATASOURCE_USERNAME}
+  password: ${TODO_SPRING_DATASOURCE_PASSWORD}
+  hikari:
+    connection-timeout: ${TODO_SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT}
+    maximum-pool-size: ${TODO_SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE}
+    minimum-idle: ${TODO_SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE}
+    idleTimeout: ${TODO_SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT}
+    max-lifetime: ${TODO_SPRING_DATASOURCE_HIKARI_MAX_LIFETIME}
+  jpa:
+    properties:
+      hibernate:
+        format_sql: ${TODO_SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL}
+        dialect.storage_engine: innodb
+        enable_lazy_load_no_trans: ${TODO_SPRING_JPA_PROPERTIES_HIBERNATE_LAZY_LOAD}

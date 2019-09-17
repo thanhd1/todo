@@ -1,0 +1,39 @@
+# Server's properties
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+# Logging's properties
+logging:
+  level:
+    com.nal: DEBUG
+    org:
+      springframework:
+        web: INFO
+      hibernate:
+        SQL: DEBUG
+        type.descriptor.sql.BasicBinder: TRACE
+  path: /tmp/todo/logs/web
+  config: classpath:logback-spring.xml
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%-5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(: %L:){faint} %m%n%wEx"
+
+# Spring's properties
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todo?useSSL=false
+    username: root
+    password: root
+    hikari:
+      connection-timeout: 30000 # 30 seconds
+      maximum-pool-size: 30
+      minimum-idle: 5
+      idleTimeout: 600000 # 10 minutes
+      max-lifetime: 1800000 # 30 minutes
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect.storage_engine: innodb
+      enable_lazy_load_no_trans: true
